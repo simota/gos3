@@ -1,0 +1,14 @@
+#!/bin/sh
+
+rm -rf ./bin
+mkdir -p ./bin/darwin ./bin/linux ./bin/windows
+
+GOOS=darwin GOARCH=amd64 go build gos3_run.go
+mv gos3_run ./bin/darwin
+
+GOOS=linux GOARCH=amd64 go build gos3_run.go
+mv gos3_run ./bin/linux
+
+GOOS=windows GOARCH=amd64 go build gos3_run.go
+mv gos3_run.exe ./bin/windows
+
